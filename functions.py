@@ -1,10 +1,3 @@
-
-def get_user_action():
-    action = input("Type add [todo], show, edit [todo num], complete [todo num] or exit: ")
-    action = action.strip()
-    return action
-
-
 def format_string(string):
     return string + '\n'
 
@@ -36,25 +29,15 @@ def edit_todo(index, action):
     write_todos(todos)
 
 
-def complete_todo(action):
+def complete_todo(index):
     todos = read_todos()
-    completed_item = action[9:]
-    if completed_item == 'all':
-        todos = []
-    else:
-        completed_item = int(action[9:])
-        todos.pop(completed_item - 1)
+    completed_item = int(index)
+    todos.pop(completed_item)
     write_todos(todos)
 
 
-def show_todos():
-    all_todos = read_todos()
-    # example of inline for-loop or list comprehension
-    # for each item in todos, return item.strip
-    formatted_todos = [item.strip('\n') for item in all_todos]
-
-    for index, item in enumerate(formatted_todos):
-        index = index + 1
-        formatted_str = f"{index}-{item}"
-        print(formatted_str)
-
+def refresh_window(window):
+    window['todos-list'].Widget.configure(height=len(read_todos()))
+    window['todos-list'].update(values=read_todos())
+    window['todo'].update(value="")
+    window.move_to_center()
