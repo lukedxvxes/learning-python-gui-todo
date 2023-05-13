@@ -23,7 +23,7 @@ def write_todos(todos_list, filepath='todos.txt'):
 
 
 def add_todo(action):
-    todo = format_string(action[4:])
+    todo = format_string(action)
     all_todos = read_todos()
     all_todos.append(todo)
     write_todos(all_todos)
