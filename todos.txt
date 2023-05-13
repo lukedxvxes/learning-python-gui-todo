@@ -1,2 +1,10 @@
-new todo 
-new todo 
+sleep
+dont sleep
+gym
+no-code
+beach
+nap
+swim
+eat
+drink water
+old one

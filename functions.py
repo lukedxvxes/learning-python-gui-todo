@@ -29,11 +29,10 @@ def add_todo(action):
     write_todos(all_todos)
 
 
-def edit_todo(action):
-    edit_item = int(action[5:])
+def edit_todo(index, action):
+    edit_item = int(index)
     todos = read_todos()
-    edit_item = edit_item - 1
-    todos[edit_item] = format_string(input("update " + todos[edit_item] + " to be: "))
+    todos[edit_item] = format_string(action)
     write_todos(todos)
 
 
